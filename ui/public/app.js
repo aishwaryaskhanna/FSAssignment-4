@@ -18,7 +18,7 @@ function ProductRow({
   }, "View")));
 }
 
-class AddProduct extends React.Component {
+class ProductAdd extends React.Component {
   constructor() {
     super();
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -26,7 +26,7 @@ class AddProduct extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const form = document.forms.productAddForm;
+    const form = document.forms.prdAddForm;
     const product = {
       Name: form.product.value,
       Price: form.price.value.slice(1),
@@ -44,13 +44,13 @@ class AddProduct extends React.Component {
 
   render() {
     return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("form", {
-      name: "productAddForm",
-      className: "formAdd",
+      name: "prdAddForm",
+      className: "productAddForm",
       onSubmit: this.handleSubmit
     }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("p", null, /*#__PURE__*/React.createElement("label", {
       htmlFor: "category"
     }, "Category", /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("select", {
-      id: "prdCat",
+      id: "CategoryList",
       name: "category"
     }, /*#__PURE__*/React.createElement("option", {
       value: "shirt"
@@ -70,7 +70,7 @@ class AddProduct extends React.Component {
       defaultValue: "$"
     }))), /*#__PURE__*/React.createElement("p", null, /*#__PURE__*/React.createElement("input", {
       type: "submit",
-      id: "btnAdd",
+      id: "addProductButton",
       value: "Add Product"
     }))), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("p", null, /*#__PURE__*/React.createElement("label", {
       htmlFor: "name"
@@ -109,7 +109,7 @@ class Product extends React.Component {
   }
 
   componentDidMount() {
-    document.forms.productAddForm.price.value = '$';
+    document.forms.prdAddForm.price.value = '$';
     this.loadData();
   }
 
@@ -166,7 +166,7 @@ class Product extends React.Component {
       id: "mainDiv"
     }, /*#__PURE__*/React.createElement("h1", null, "My Company Inventory"), /*#__PURE__*/React.createElement("h3", null, "Showing all availble products"), /*#__PURE__*/React.createElement("hr", null), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement(ProductTable, {
       products: products
-    }), /*#__PURE__*/React.createElement("h3", null, "Add a new product to inventory"), /*#__PURE__*/React.createElement("hr", null), /*#__PURE__*/React.createElement(AddProduct, {
+    }), /*#__PURE__*/React.createElement("h3", null, "Add a new product to inventory"), /*#__PURE__*/React.createElement("hr", null), /*#__PURE__*/React.createElement(ProductAdd, {
       createProduct: this.createProduct
     }));
   }

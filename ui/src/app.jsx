@@ -27,7 +27,7 @@ class ProductAdd extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const form = document.forms.productAdd;
+    const form = document.forms.prdAddForm;
     const product = {
       Name: form.product.value,
       Price: form.price.value.slice(1),
@@ -44,7 +44,7 @@ class ProductAdd extends React.Component {
   render() {
     return (
       <div>
-        <form name="productAdd" className="productAddForm" onSubmit={this.handleSubmit}>
+        <form name="prdAddForm" className="productAddForm" onSubmit={this.handleSubmit}>
           <div>
             <p>
               <label htmlFor="category">
@@ -119,7 +119,7 @@ class Product extends React.Component {
   }
 
   componentDidMount() {
-    document.forms.productAddForm.price.value = '$';
+    document.forms.prdAddForm.price.value = '$';
     this.loadData();
   }
 
